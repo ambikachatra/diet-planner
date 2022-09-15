@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    background: url(../bg.jpg) no-repeat;
+    height: 100%;
+    background-size: 101% 101%;
+    background-position: -1px -1px;
+}
+
+
+.banner-text{
+    width:30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height:100vh;
+    margin-left:10rem;
+}
+
+.banner-text img{
+    width:100%;
+}
+
+.banner-text .button-group{
+    display: flex;
+    justify-content: space-between;
+    margin-top:3rem;
+}
+
+.banner-text .button-group .button{
+    display: flex;
+    background:#4643AC;
+    color:white;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    width:10rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}

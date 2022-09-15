@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    background: url(../bg.jpg) no-repeat;
+    height: 100%;
+    background-size: 101% 101%;
+    background-position: -1px -1px;
+    color:white;
+}
+
+.main-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+
+.main-content > form {
+    background:rgba(16, 0, 68, 0.185);
+    backdrop-filter: blur(10px);
+    border:1px solid grey;
+    border-radius:5px;
+    padding:2rem 4rem;
+}
+
+.main-content > form > .info-message{
+    background:rgba(0, 145, 255, 0.317);
+    padding:1rem;
+    border-radius:5px;
+    margin-bottom:2rem;
+    animation:hide 1s forwards;
+    animation-delay: 1s;
+    height:50px;
+}
+
+@keyframes hide {
+    99% {
+        opacity:0;
+    }
+    100%{
+        height:0;
+        padding:0 1rem;
+        opacity: 0;
+        margin:0;
+    }
+}
+.main-content > form > .form-header{
+    font-size:2rem;
+    text-align: center;
+}
+.main-content > form > .input-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom:1rem;
+}
+.main-content > form > .input-group > label{
+    font-size: 1.2rem;
+    margin:12px 0;
+}
+
+
+.main-content > form > .input-group > input{
+    background:rgba(89, 0, 255, 0.136);
+    border:1px solid rgba(169, 169, 169, 0.434);
+    border-radius:2px;
+    padding:15px 20px;
+    font-family: inherit;
+    width:300px;
+    color:white;
+}
+
+.main-content > form > .input-group > button {
+    background:rgb(55, 0, 255);
+    padding:1rem 0;
+    border:1px solid blue;
+    color:white;
+    font-size: 1.34rem;
+    font-family: inherit;
+    border-radius:5px;
+    margin-top:1rem;
+}

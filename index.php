@@ -11,10 +11,15 @@
     <div class="main-content">
 
         <div class="banner">
-            <div class="app-name">Diet Planner</div>
 
             <div class="banner-text">
                 <img src="banner-text.svg" alt="">
+
+                <div class="button-group">
+                    <a href="register.php" class="button">Register</a>
+                    <a href="login.php" class="button">Login</a>
+                </div>
+
             </div>
         </div>
 

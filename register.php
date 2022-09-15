@@ -13,59 +13,52 @@
 
 
     <?php
-    
     session_start();
+    
     
     if(isset($_POST["email"])) {
         
+        $fullname=$_POST["fullname"];
+        $username=$_POST["username"];
         $email=$_POST["email"];
         $password=$_POST["password"];
 
         $hashed=md5($password);
 
-        $query="select email from user where email='%s' and password='%s'";
-        $sql=sprintf($query, $email, $hashed);
+        $query="INSERT INTO `user`(`username`, `fullname`, `email`, `password`) VALUES ('%s','%s','%s','%s')";
+        $sql=sprintf($query, $username, $fullname, $email, $hashed);
 
-        $result = $conn->query($sql);
+        $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $_SESSION["token"]="$email:$hashed";
+          
+        $_SESSION["msg"]="Registration successful.";
+        header("Location: login.php");
 
-            echo "haan badhiya";
-
-            header("Location: dashboard");
-
-            exit(0);
-
-        } else {
-            echo "Login failed";
-        }
-
+          
         $conn->close();
 
         
     }
+
+
     
     ?>
 
     <div class="main-content">
 
-    <form action="login.php" method="POST">
+    <form action="register.php" method="POST">
+
+    <div class="form-header">Register</div>
+    <div class="input-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" name="fullname" />
+        </div>
 
 
-        <?php 
-        
-        if(isset($_SESSION["msg"])) {
-            echo "<div class=\"info-message\">{$_SESSION["msg"]}</div>";
-            unset($_SESSION["msg"]);
-        }
-
-        ?>
-
-        
-
-        <div class="form-header">Login</div>
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" />
+        </div>
 
         <div class="input-group">
             <label for="email">email</label>
@@ -78,7 +71,7 @@
         </div>
 
         <div class="input-group">
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
         </div>
     </form>
 

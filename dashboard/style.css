@@ -12,20 +12,13 @@ body {
   --diet-container-background: rgb(255, 255, 255);
   --diet-plan-background: rgb(121 115 247 / 80%);
   --diet-plan-background__hover: rgba(216, 60, 255, 0.987);
-
   --diet-plan-text-color: white;
-
-  --add-diet-background: linear-gradient(to bottom right,
-      rgb(221, 115, 247) 1.62%,
-      rgb(172, 16, 189) 105.97%);
+  --add-diet-background: linear-gradient(to bottom right, rgb(221, 115, 247) 1.62%, rgb(172, 16, 189) 105.97%);
   --add-diet-color: white;
   --global-text-color: rgb(0, 0, 0);
   --app-name-color: #9300ff;
   background: var(--body-background);
 }
-
-
-
 
 header {
   background: white;
@@ -43,33 +36,33 @@ header h2 {
   box-shadow: 0 8px 20px -25px black;
 }
 
+header h2 a{
+  text-decoration: none;
+  color:inherit;
+}
+
 header nav {
   margin-right: 5rem;
 }
 
 header nav a.button.logout {
-
   background: linear-gradient(to bottom right, rgb(87, 62, 244), rgb(221, 115, 247));
   padding: 1rem 3rem;
   color: white;
   border-radius: 4px;
 }
 
-
 .main-content {
   display: flex;
   justify-content: center;
-
-
-  height: calc(100vh - 100px);
+  height: 100%;
   padding: 3rem 0px;
 }
 
 .main-content .diets-container {
-  height: 85%;
+  height: fit-content;min-height: 85%;
   width: 80vw;
   border-radius: 13px;
-
   background: var(--diet-container-background);
   box-shadow: 0px 7px 26px -15px rgb(5 0 4 / 30%);
   margin-right: 2rem;
@@ -77,16 +70,13 @@ header nav a.button.logout {
   border: 1px solid #80808033;
 }
 
-
 .main-content .diets-container h2.diets-container-heading {
   font-size: 1.7rem;
-
   margin-top: 1rem;
   margin-left: 2rem;
-  margin-bottom: 2rem;
+
   color: #9300ff;
-
-
+  margin-bottom: 0.4rem;
 }
 
 h2 {
@@ -153,16 +143,14 @@ h2 {
   background: var(--add-diet-background);
   padding: 1rem 3.6rem;
   border-radius: 12px;
-  width: 220px;
+  width: 302px;
   text-align: center;
   margin-bottom: 1rem;
   font-weight: 400;
   color: var(--add-diet-color);
   font-size: 0.9rem;
   box-shadow: 0px 18px 26px -15px rgba(5, 0, 4, 0.541);
-
-}
-
+display: flex;align-items: center;justify-content: space-between;}
 
 .controls-pane {
   align-self: flex-start;
@@ -176,3 +164,53 @@ h2 {
   font-size: 24px;
   font-weight: 600;
 }
+
+.diet-item {
+  display: inline-flex;
+  flex-direction: column;
+  height: fit-content;
+  background: pink;
+  padding: 1rem 1rem;
+  width: fit-content;
+  border-radius: 9px;
+  align-items: center;
+  justify-content: center;
+margin: 1rem;}
+
+.diet-item img.diet-item-image {
+  width: 110px;
+  border-radius: 8px;
+  height: 110px;
+}
+
+.diet-item .item-quantity {
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 0.3rem;
+  margin-bottom: 0.1rem;
+}
+
+.diet-item .item-name {
+  font-size: 1.1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+
+.diet-items-container {
+  margin: 0rem 1.8rem;
+}
+
+.diet-plan-description {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.diet-plan-author {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.controls-pane a span.material-symbols-outlined {width: 50px;display: flex;justify-content: flex-start;}
+
+.controls-pane span.button-text {width: 100%;text-align: left;margin-left: 0.2rem;}

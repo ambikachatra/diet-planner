@@ -1,7 +1,7 @@
 <header>
-    <h2>Diet Planner</h2>
+    <h2><a href="index.php">Diet Planner</a></h2>
 
-    Welcome <?php echo $userDetails["username"];?>
+    Welcome <?php echo $userDetails["fullname"];?>
     <nav>
         <a href="../logout.php" class="button logout">Logout </a>
     </nav>

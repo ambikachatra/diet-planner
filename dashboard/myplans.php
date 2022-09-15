@@ -23,14 +23,15 @@ include "../auth/check_logged_in.php";
     <div class="main-content">
 
         <div class="diets-container">
-            <h2 class="diets-container-heading">Trending Diet Plans</h2>
+            <h2 class="diets-container-heading">My Diet Plans</h2>
 
             <?php
 
             $star_filled = file_get_contents("../star_filled.svg");
             $star_unfilled = file_get_contents("../star_unfilled.svg");
 
-            $sql = "SELECT * FROM diet inner join feedback on diet.plan_id=feedback.plan_id order by rating desc";
+            $sql = "SELECT * FROM diet inner join feedback on diet.plan_id=feedback.plan_id where username='{$userDetails['username']}' order by rating desc";
+    
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
