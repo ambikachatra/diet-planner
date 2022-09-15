@@ -10,7 +10,7 @@
 
 
 
-    <a href="#" class="button add-diet-plan">
+    <a href="add-diet-plan.php" class="button add-diet-plan">
         <span class="material-symbols-outlined">
             add
         </span> 

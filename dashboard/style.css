@@ -59,7 +59,7 @@ header nav a.button.logout {
   padding: 3rem 0px;
 }
 
-.main-content .diets-container {
+.main-content .diets-container, .main-content .add-diet-container {
   height: fit-content;min-height: 85%;
   width: 80vw;
   border-radius: 13px;
@@ -214,3 +214,19 @@ margin: 1rem;}
 .controls-pane a span.material-symbols-outlined {width: 50px;display: flex;justify-content: flex-start;}
 
 .controls-pane span.button-text {width: 100%;text-align: left;margin-left: 0.2rem;}
+
+.reviews-container {background: #ffecc0;padding: 2rem 3rem;border-radius: 1rem;margin-top: 1rem;}
+
+.reviews-heading {font-size: 2rem;font-weight: 500;margin-bottom: 1rem;}
+
+.review {background: #e3d4ad;padding: 1.6rem 2.2rem;border-radius: 0.8rem;margin-bottom: 1rem;}
+
+.reviews-container form {display: flex;flex-direction: column;}
+
+.reviews-container form button {padding: 0.6rem 2.4rem;text-align: center;display: flex;width: fit-content;margin-top: 1rem;/* margin-left: auto; */}
+
+.reviews-container form textarea {background: beige;border: 1px solid black;}
+
+.reviews-container select {width: fit-content;padding: 0.8rem;background: #145f8d;margin-top: 1rem;}
+
+.reviews-container .review .review-rating {margin: 0.4rem 0;}
