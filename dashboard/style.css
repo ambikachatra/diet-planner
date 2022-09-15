@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline:1px solid blue; */
+}
+
+body {
+  font-family: "Inter";
+  --body-background: #e8e9e9;
+  --diet-plan-header-color: #ffffff;
+  --diet-container-background: rgb(255, 255, 255);
+  --diet-plan-background: rgb(121 115 247 / 80%);
+  --diet-plan-background__hover: rgba(216, 60, 255, 0.987);
+
+  --diet-plan-text-color: white;
+
+  --add-diet-background: linear-gradient(to bottom right,
+      rgb(221, 115, 247) 1.62%,
+      rgb(172, 16, 189) 105.97%);
+  --add-diet-color: white;
+  --global-text-color: rgb(0, 0, 0);
+  --app-name-color: #9300ff;
+  background: var(--body-background);
+}
+
+
+
+
+header {
+  background: white;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h2 {
+  margin: 0;
+  margin-left: 5rem;
+  color: var(--app-name-color);
+  font-size: 2.2rem;
+  box-shadow: 0 8px 20px -25px black;
+}
+
+header nav {
+  margin-right: 5rem;
+}
+
+header nav a.button.logout {
+
+  background: linear-gradient(to bottom right, rgb(87, 62, 244), rgb(221, 115, 247));
+  padding: 1rem 3rem;
+  color: white;
+  border-radius: 4px;
+}
+
+
+.main-content {
+  display: flex;
+  justify-content: center;
+
+
+  height: calc(100vh - 100px);
+  padding: 3rem 0px;
+}
+
+.main-content .diets-container {
+  height: 85%;
+  width: 80vw;
+  border-radius: 13px;
+
+  background: var(--diet-container-background);
+  box-shadow: 0px 7px 26px -15px rgb(5 0 4 / 30%);
+  margin-right: 2rem;
+  padding: 1.4rem 1.3rem;
+  border: 1px solid #80808033;
+}
+
+
+.main-content .diets-container h2.diets-container-heading {
+  font-size: 1.7rem;
+
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  color: #9300ff;
+
+
+}
+
+h2 {
+  color: var(--diet-plan-header-color);
+  margin-bottom: 1rem;
+}
+
+.button {
+  text-decoration: none;
+  color: var(--global-text-color);
+  display: inline-block;
+}
+
+.diet-plan {
+  text-decoration: none;
+  display: block;
+  background: var(--diet-plan-background);
+  color: var(--diet-plan-text-color);
+  padding: 1.5rem 0.5rem;
+  padding-left: 3rem;
+  margin: 0.4rem 0;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 -1px 23px -20px #00000087, 11px 20px 20px 0px #ffffff0f inset;
+  border-radius: 9px;
+  transition: 0.1s all cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.diet-plan:hover {
+  background: var(--diet-plan-background__hover);
+  cursor: pointer;
+}
+
+.diet-plan .diet-plan-author {
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+.diet-plan .view-details {
+  font-size: 14px;
+  margin: 5px 0;
+  color: purple;
+}
+
+.diet-plan .diet-plan-rating {
+  margin: 0.2rem 0;
+  margin-bottom: 0.5rem;
+}
+
+.diet-plan .diet-plan-author span {
+  font-size: 16px;
+}
+
+.diet-plan .diet-plan-rating svg {
+  width: 28px;
+}
+
+.diet-plan .diet-plan-rating svg path {
+  fill: rgb(46 70 211);
+}
+
+.button.add-diet-plan {
+  background: var(--add-diet-background);
+  padding: 1rem 3.6rem;
+  border-radius: 12px;
+  width: 220px;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  color: var(--add-diet-color);
+  font-size: 0.9rem;
+  box-shadow: 0px 18px 26px -15px rgba(5, 0, 4, 0.541);
+
+}
+
+
+.controls-pane {
+  align-self: flex-start;
+  padding: 2rem 0px;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.diet-plan .diet-plan-name {
+  font-size: 24px;
+  font-weight: 600;
+}

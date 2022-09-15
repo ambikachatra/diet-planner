@@ -1,11 +1,11 @@
 <?php 
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$dbusername = "root";
+$dbpassword = "";
 $dbname="diet-planner";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
 
 if ($conn->connect_error) {
