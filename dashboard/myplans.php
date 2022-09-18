@@ -17,27 +17,44 @@ include "../auth/check_logged_in.php";
 </head>
 
 <body>
+<?php
 
+if (isset($_SESSION["msg"])) {
+    echo "<div class=\"info-message\">{$_SESSION["msg"]}</div>";
+    unset($_SESSION["msg"]);
+}
+
+?>
     <?php include "header.php" ?>
 
     <div class="main-content">
 
         <div class="diets-container">
-            <h2 class="diets-container-heading">My Diet Plans</h2>
+        
+            <div class="container-header-group"><h2 class="container-heading">My Diet Plans</h2>
+            <a href="add-diet-plan.php" class="button add-diet-plan">
+        <span class="material-symbols-outlined">
+            add
+        </span> 
+
+        <span class="button-text">Add Diet Plan</span>
+    </a>
+        </div>
 
             <?php
 
             $star_filled = file_get_contents("../star_filled.svg");
             $star_unfilled = file_get_contents("../star_unfilled.svg");
 
-            $sql = "SELECT * FROM diet inner join feedback on diet.plan_id=feedback.plan_id where username='{$userDetails['username']}' order by rating desc";
-    
+            $sql = "SELECT diet.plan_id,diet.plan_name,diet.username,diet.plan_description,rating,feedback FROM diet left outer join feedback on diet.plan_id=feedback.plan_id where diet.username='{$userDetails['username']}' order by rating desc";
+            
             $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
+            if ($result && $result->num_rows > 0) {
 
                 while ($row = $result->fetch_assoc()) {
             ?>
+            
                     <a class="diet-plan" href="diet.php?plan_id=<?php echo $row["plan_id"] ?>">
                         <div class="diet-plan-name"><?php echo $row["plan_name"]; ?></div>
                         <div class="diet-plan-author">By <span><?php echo $row["username"]; ?></span></div>

@@ -9,15 +9,6 @@
     </a>
 
 
-
-    <a href="add-diet-plan.php" class="button add-diet-plan">
-        <span class="material-symbols-outlined">
-            add
-        </span> 
-
-        <span class="button-text">Add Diet Plan</span>
-    </a>
-
     <a href="myplans.php" class="button add-diet-plan">
     <span class="material-symbols-outlined">
             person

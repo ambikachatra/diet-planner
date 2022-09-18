@@ -32,7 +32,6 @@
             $row = $result->fetch_assoc();
             $_SESSION["token"]="$email:$hashed";
 
-            echo "haan badhiya";
 
             header("Location: dashboard");
 

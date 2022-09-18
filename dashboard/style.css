@@ -10,13 +10,13 @@ body {
   --body-background: #e8e9e9;
   --diet-plan-header-color: #ffffff;
   --diet-container-background: rgb(255, 255, 255);
-  --diet-plan-background: rgb(121 115 247 / 80%);
-  --diet-plan-background__hover: rgba(216, 60, 255, 0.987);
-  --diet-plan-text-color: white;
-  --add-diet-background: linear-gradient(to bottom right, rgb(221, 115, 247) 1.62%, rgb(172, 16, 189) 105.97%);
-  --add-diet-color: white;
+  --diet-plan-background: linear-gradient(to top left, #eb60c0, #FEC2F2);
+  --diet-plan-background__hover: linear-gradient(to top left, #ff02b1, #FEC2F2);
+  --diet-plan-text-color: rgb(0, 0, 0);
+  --add-diet-background: linear-gradient(to bottom, #c2a9ff, #a394e3);
+  --add-diet-color: black;
   --global-text-color: rgb(0, 0, 0);
-  --app-name-color: #9300ff;
+  --app-name-color: #d70ce5;
   background: var(--body-background);
 }
 
@@ -36,9 +36,9 @@ header h2 {
   box-shadow: 0 8px 20px -25px black;
 }
 
-header h2 a{
+header h2 a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
 }
 
 header nav {
@@ -46,10 +46,51 @@ header nav {
 }
 
 header nav a.button.logout {
-  background: linear-gradient(to bottom right, rgb(87, 62, 244), rgb(221, 115, 247));
+  background: #c662ed;
   padding: 1rem 3rem;
   color: white;
   border-radius: 4px;
+}
+
+.info-message {
+  background: rgb(98 231 220);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  animation: hide 3s forwards;
+  height: 50px;
+  position: fixed;
+  box-shadow: 0 0 10px #00000036;
+  top: 113px;
+  width: fit-content;
+  z-index: 23;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 0;
+  padding: 0 1rem;
+  opacity: 0;
+}
+
+@keyframes hide {
+  0% {
+    height: 0;
+    padding: 0 1rem;
+    opacity: 0;
+  }
+
+  30%,
+  70% {
+    height: 50px;
+    padding: 1rem;
+    opacity: 1;
+  }
+
+  90% {
+    height: 0;
+    padding: 0 1rem;
+    opacity: 0;
+  }
 }
 
 .main-content {
@@ -59,8 +100,11 @@ header nav a.button.logout {
   padding: 3rem 0px;
 }
 
-.main-content .diets-container, .main-content .add-diet-container {
-  height: fit-content;min-height: 85%;
+.main-content .diets-container,
+.main-content .add-diet-container,
+.main-content .add-diet-item-container {
+  height: fit-content;
+  min-height: 85%;
   width: 80vw;
   border-radius: 13px;
   background: var(--diet-container-background);
@@ -70,12 +114,11 @@ header nav a.button.logout {
   border: 1px solid #80808033;
 }
 
-.main-content .diets-container h2.diets-container-heading {
+.main-content h2.container-heading {
   font-size: 1.7rem;
   margin-top: 1rem;
   margin-left: 2rem;
-
-  color: #9300ff;
+  color: #000000;
   margin-bottom: 0.4rem;
 }
 
@@ -112,31 +155,30 @@ h2 {
 }
 
 .diet-plan .diet-plan-author {
-  font-size: 12px;
+  font-size: 14px;
   margin: 10px 0;
 }
 
 .diet-plan .view-details {
   font-size: 14px;
   margin: 5px 0;
-  color: purple;
+  color: #1a1a1a;
 }
 
 .diet-plan .diet-plan-rating {
   margin: 0.2rem 0;
   margin-bottom: 0.5rem;
+  margin-left: 0;
 }
 
-.diet-plan .diet-plan-author span {
-  font-size: 16px;
-}
+.diet-plan .diet-plan-author span {}
 
 .diet-plan .diet-plan-rating svg {
   width: 28px;
 }
 
 .diet-plan .diet-plan-rating svg path {
-  fill: rgb(46 70 211);
+  fill: rgb(0 0 0);
 }
 
 .button.add-diet-plan {
@@ -149,8 +191,26 @@ h2 {
   font-weight: 400;
   color: var(--add-diet-color);
   font-size: 0.9rem;
-  box-shadow: 0px 18px 26px -15px rgba(5, 0, 4, 0.541);
-display: flex;align-items: center;justify-content: space-between;}
+  box-shadow: 0px 11px 8px -13px #ff4d64;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button.remove-diet-item {
+  background: #ff4d64;
+  padding: 0.5rem 0.7rem;
+  border-radius: 12px;
+  width: fit-content;
+  text-align: center;
+  font-weight: 400;
+  color: var(--add-diet-color);
+  font-size: 0.9rem;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .controls-pane {
   align-self: flex-start;
@@ -161,7 +221,7 @@ display: flex;align-items: center;justify-content: space-between;}
 }
 
 .diet-plan .diet-plan-name {
-  font-size: 24px;
+  font-size: 27px;
   font-weight: 600;
 }
 
@@ -169,13 +229,16 @@ display: flex;align-items: center;justify-content: space-between;}
   display: inline-flex;
   flex-direction: column;
   height: fit-content;
-  background: pink;
+  background: #f4fff2;
   padding: 1rem 1rem;
   width: fit-content;
   border-radius: 9px;
   align-items: center;
   justify-content: center;
-margin: 1rem;}
+  margin: 1rem;
+  box-shadow: 0 9px 15px -11px #00000030;
+  border: 1px solid #80808026;
+}
 
 .diet-item img.diet-item-image {
   width: 110px;
@@ -184,18 +247,20 @@ margin: 1rem;}
 }
 
 .diet-item .item-quantity {
-  font-size: 1rem;
+  font-size: 0.9rem;
   width: 100%;
   margin-top: 0.3rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.7rem;
+  margin-left: 1rem;
 }
 
 .diet-item .item-name {
   font-size: 1.1rem;
   width: 100%;
   margin-top: 1rem;
+  font-weight: 500;
+  margin-left: 1rem;
 }
-
 
 .diet-items-container {
   margin: 0rem 1.8rem;
@@ -211,22 +276,113 @@ margin: 1rem;}
   margin-bottom: 1rem;
 }
 
-.controls-pane a span.material-symbols-outlined {width: 50px;display: flex;justify-content: flex-start;}
+.container-header-group {
+  display: flex;
+  justify-content: space-between;
+}
 
-.controls-pane span.button-text {width: 100%;text-align: left;margin-left: 0.2rem;}
+.container-header-group .button {
+  width: fit-content;
+  padding: 1rem 1.2rem;
+}
 
-.reviews-container {background: #ffecc0;padding: 2rem 3rem;border-radius: 1rem;margin-top: 1rem;}
+.container-header-group .button span.button-text {
+  margin-left: 0.5rem;
+}
 
-.reviews-heading {font-size: 2rem;font-weight: 500;margin-bottom: 1rem;}
+.controls-pane a span.material-symbols-outlined {
+  width: 50px;
+  display: flex;
+  justify-content: flex-start;
+}
 
-.review {background: #e3d4ad;padding: 1.6rem 2.2rem;border-radius: 0.8rem;margin-bottom: 1rem;}
+.controls-pane span.button-text {
+  width: 100%;
+  text-align: left;
+  margin-left: 0.2rem;
+}
 
-.reviews-container form {display: flex;flex-direction: column;}
+.reviews-container {
+  background: #fbf5ff;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
 
-.reviews-container form button {padding: 0.6rem 2.4rem;text-align: center;display: flex;width: fit-content;margin-top: 1rem;/* margin-left: auto; */}
+.reviews-heading {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
 
-.reviews-container form textarea {background: beige;border: 1px solid black;}
+.review {
+  background: #dedaff;
+  padding: 1.6rem 2.2rem;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+}
 
-.reviews-container select {width: fit-content;padding: 0.8rem;background: #145f8d;margin-top: 1rem;}
+.reviews-container form {
+  display: flex;
+  flex-direction: column;
+}
 
-.reviews-container .review .review-rating {margin: 0.4rem 0;}
+.reviews-container form button {
+  padding: 0.6rem 2.4rem;
+  text-align: center;
+  display: flex;
+  width: fit-content;
+  margin-top: 1rem;
+  /* margin-left: auto; */
+}
+
+.reviews-container form textarea {
+  background: beige;
+  border: 1px solid black;
+}
+
+.reviews-container select {
+  width: fit-content;
+  padding: 0.8rem;
+  background: #145f8d;
+  margin-top: 1rem;
+}
+
+.reviews-container .review .review-rating {
+  margin: 0.4rem 0;
+}
+
+.container-header-group .button-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.crud-form .input-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.crud-form .input-item input {
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-top: 0.5rem;
+}
+
+.crud-form .input-item textarea {
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-top: 0.5rem;
+}
+
+form.crud-form {
+  width: 500px;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.crud-form button {
+  padding: 0.5rem 1rem;
+}
