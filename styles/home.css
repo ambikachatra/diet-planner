@@ -12,6 +12,7 @@ html {
     height: 100%;
     background-size: 101% 101%;
     background-position: -1px -1px;
+    font-family: 'Inter', sans-serif;
 }
 
 
@@ -37,11 +38,13 @@ html {
 .banner-text .button-group .button{
     display: flex;
     background:#4643AC;
-    color:white;
+    color:
+    white;
     text-decoration: none;
     padding: 1rem 1.5rem;
     width:10rem;
     align-items: center;
     justify-content: center;
+    font-family: inherit;
     border-radius: 5px;
 }
