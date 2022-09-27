@@ -215,7 +215,7 @@ include "../auth/check_logged_in.php";
                         <?php
 
                         } else {
-                            echo "<h3>You've already reviewd this.";
+                            echo "<h3>You've already reviewed this.";
                         }
                     }
 

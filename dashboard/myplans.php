@@ -77,7 +77,7 @@ if (isset($_SESSION["msg"])) {
             <?php
                 }
             } else {
-                echo "0 results";
+                echo "No plans added yet.";
             }
             $conn->close();
 

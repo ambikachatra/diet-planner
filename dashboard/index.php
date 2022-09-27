@@ -60,7 +60,7 @@ include "../auth/check_logged_in.php";
             <?php
                 }
             } else {
-                echo "0 results";
+                echo "No plans added yet.";
             }
             $conn->close();
 
